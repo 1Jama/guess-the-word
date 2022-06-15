@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import App from './App';
 
-const WordGuessInputForm = () => {
+const WordGuessInputForm = (props) => {
   const [guess, setGuess] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const guessedWord = { guess };
+    const newGuess = { guess };
 
-    props.onSubmit(guessedWord);
+    if (guess) {
+      props.onSubmit(newGuess);
+    }
 
-    props.changeState(false);
+    //props.changeState(false);
   };
 
   return (
@@ -23,6 +27,15 @@ const WordGuessInputForm = () => {
         value={guess}
         onChange={(e) => setGuess(e.target.value)}
       />
+      <Button
+        type='submit'
+        className='Button'
+        variant='contained'
+        onClick={handleSubmit}
+      >
+        {' '}
+        Submit{' '}
+      </Button>
     </div>
   );
 };
