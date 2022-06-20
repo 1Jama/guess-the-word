@@ -33,8 +33,7 @@ const WordGuessInputForm = (props) => {
         variant='contained'
         onClick={handleSubmit}
       >
-        {' '}
-        Submit{' '}
+        Submit
       </Button>
     </div>
   );
