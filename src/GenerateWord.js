@@ -13,18 +13,19 @@ const GenerateWord = () => {
   const saveGuessedWord = (data) => {
     console.log(data);
 
-    //console.log(guessedWord);
-
     setGuessedWord(data);
 
-    GuessChecker(toString(wordData), toString(guessedWord));
+    //console.log(guessedWord.toString());
+    //console.log(wordData.toString());
+
+    GuessChecker(wordData, data);
   };
 
   useEffect(() => {
     fetch(`https://random-word-api.herokuapp.com/word`)
       .then((response) => response.json())
       .then((data) => setWordData(data));
-    console.log(wordData);
+    //console.log(wordData + ' use effect');
   }, []);
 
   return (

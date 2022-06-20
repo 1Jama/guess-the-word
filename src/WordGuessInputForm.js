@@ -8,7 +8,7 @@ const WordGuessInputForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newGuess = { guess };
+    const newGuess = guess;
 
     if (guess) {
       props.onSubmit(newGuess);
