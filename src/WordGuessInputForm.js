@@ -5,6 +5,7 @@ import App from './App';
 const WordGuessInputForm = (props) => {
   const [guess, setGuess] = useState('');
 
+  //handles users submitted input on button click
   const handleSubmit = (e) => {
     e.preventDefault();
 
