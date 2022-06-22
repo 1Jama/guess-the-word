@@ -8,9 +8,27 @@ const GenerateWord = () => {
   const [wordData, setWordData] = useState();
   const [newWord, setNewWord] = useState(false);
   const [scoreCounter, setScoreCounter] = useState(0);
-  const [correctWord, setCorrectWord] = useState(true);
+  const [correctWord, setCorrectWord] = useState();
 
   const [guessedWord, setGuessedWord] = useState('');
+
+  useEffect(() => {
+    console.log(correctWord);
+    setCorrectWord(correctWord);
+
+    guessResult();
+  }, [correctWord]);
+  //results if based on if the users guess is correct or not
+  const guessResult = () => {
+    if (correctWord === true) {
+      setScoreCounter(scoreCounter + 1);
+      setNewWord(!newWord);
+
+      console.log(scoreCounter);
+    } else if (correctWord === false) {
+      resetGame();
+    }
+  };
 
   //Game reset function
   const resetGame = () => {
@@ -26,18 +44,11 @@ const GenerateWord = () => {
 
     //storing the users guess and comparing it to the given word
     setGuessedWord(data);
+    setCorrectWord(false);
     setCorrectWord(GuessChecker(wordData, data));
     console.log(correctWord);
 
-    //results if based on if the users guess is correct or not
-    if (correctWord === true) {
-      setScoreCounter(scoreCounter + 1);
-      setNewWord(!newWord);
-
-      console.log(scoreCounter);
-    } else if (correctWord === false) {
-      resetGame();
-    }
+    guessResult();
   };
 
   //Grabbing word from API - will replace once db is made
