@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import GenerateWord from './GenerateWord';
 
-import React, { Component, useState } from 'react';
-import GuessChecker from './GuessChecker';
+import React, { Component, useState, Route } from 'react';
+//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
