@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import WordGuessInputForm from './WordGuessInputForm';
 import { Button } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
 const GenerateWord = () => {
   const [generatedWord, setGeneratedWord] = useState();
@@ -72,7 +73,12 @@ const GenerateWord = () => {
   }, [newWord]);
 
   return (
-    <div className='GenerateWord'>
+    <motion.div
+      className='GenerateWord'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       {/* {console.log(generatedWord)} */}
       <h1>{generatedWord}</h1>
       <h2> Score: {scoreCounter}</h2>
@@ -80,7 +86,7 @@ const GenerateWord = () => {
       <Button className='Button' variant='contained' onClick={resetGame}>
         Reset
       </Button>
-    </div>
+    </motion.div>
   );
 };
 
