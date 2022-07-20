@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import WordGuessInputForm from './WordGuessInputForm';
+import './GenerateWord.css';
 import { Button } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 
@@ -18,11 +19,6 @@ const GenerateWord = () => {
 
     guessResult();
   }, [isCorrectWord]);
-
-  //returing true or false based on users guess compared to the given word
-  /*   const GuessChecker = (word, guess) => {
-    return word[0] === guess;
-  }; */
 
   //results if based on if the users guess is correct or not
   const guessResult = () => {
@@ -74,18 +70,21 @@ const GenerateWord = () => {
 
   return (
     <motion.div
-      className='GenerateWord'
+      className='guessContainer'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      {/* {console.log(generatedWord)} */}
-      <h1>{generatedWord}</h1>
-      <h2> Score: {scoreCounter}</h2>
-      <WordGuessInputForm onSubmit={saveGuessedWord} />
-      <Button className='Button' variant='contained' onClick={resetGame}>
-        Reset
-      </Button>
+      <div className='innerGuesContainer'>
+        {/* {console.log(generatedWord)} */}
+        <h1>{generatedWord}</h1>
+        <h2> Score: {scoreCounter}</h2>
+        <WordGuessInputForm onSubmit={saveGuessedWord} />
+        <br />
+        <Button className='Button' variant='contained' onClick={resetGame}>
+          Reset
+        </Button>
+      </div>
     </motion.div>
   );
 };

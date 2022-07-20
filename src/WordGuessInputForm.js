@@ -26,6 +26,7 @@ const WordGuessInputForm = (props) => {
           value={guess}
           placeholder='Place your guess here...'
         />
+        <br />
         <Button
           type='submit'
           className='Button'
