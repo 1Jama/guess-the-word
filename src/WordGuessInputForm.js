@@ -9,7 +9,7 @@ const WordGuessInputForm = (props) => {
     e.preventDefault();
 
     const newGuess = guess;
-
+    setGuess('');
     if (guess) {
       props.onSubmit(newGuess);
     }
@@ -20,7 +20,7 @@ const WordGuessInputForm = (props) => {
 
   return (
     <div className='form-group'>
-      <Form onChange={(e) => setGuess(e.target.value)}>
+      <Form className='guessInput' onChange={(e) => setGuess(e.target.value)}>
         <Form.Control
           type='text'
           value={guess}

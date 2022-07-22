@@ -41,7 +41,7 @@ p {
   color: black;
 }
 
-Button {
+.startButton {
   width: 200px;
   height: 30px;
 }
