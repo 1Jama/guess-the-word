@@ -15,7 +15,9 @@ function Home() {
       <div className='homeBox'>
         <p>Translate The Spanish Word!</p>
         <Link to='/Guess'>
-          <Button className='startButton'>Start!</Button>
+          <Button className='startButton' variant='success'>
+            Start!
+          </Button>
         </Link>
       </div>
     </motion.div>

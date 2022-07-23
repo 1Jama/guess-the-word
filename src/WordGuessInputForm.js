@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const WordGuessInputForm = (props) => {
   const [guess, setGuess] = useState('');
@@ -29,8 +30,8 @@ const WordGuessInputForm = (props) => {
         <br />
         <Button
           type='submit'
-          className='Button'
-          variant='contained'
+          variant='success'
+          size='lg'
           onClick={handleSubmit}
         >
           Submit
