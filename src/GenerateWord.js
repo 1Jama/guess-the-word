@@ -78,10 +78,9 @@ const GenerateWord = () => {
       exit={{ opacity: 0 }}
     >
       <div className='innerGuessContainer'>
-        <div className='scoreBox'>
-          <h2 className='score'> Score: {scoreCounter}</h2>
-        </div>
         <div className='wordAndForm'>
+          <h2 className='score'> Score: {scoreCounter}</h2>
+
           <h1 className='spanishWord'>{generatedWord}</h1>
 
           <WordGuessInputForm onSubmit={saveGuessedWord} />

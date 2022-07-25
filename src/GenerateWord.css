@@ -3,8 +3,9 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 
-  margin-top: 200px;
+  margin-top: 10%;
 }
 body {
   background-color: transparent !important;
@@ -14,11 +15,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 35px;
 }
 
 .innerGuessContainer {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
   border-radius: 30%;
@@ -46,22 +49,19 @@ img {
 
 .spanishWord {
   font-size: 75px;
+  align-self: center;
+  margin-top: 5vh;
 }
 
-.scoreBox {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-
-  padding-top: 15px;
-}
 .score {
   align-self: center;
+
+  padding-bottom: 0;
 }
 .wordAndForm {
   display: flex;
+
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-color: aquamarine;
+  justify-content: center;
 }
