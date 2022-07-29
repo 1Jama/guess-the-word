@@ -59,7 +59,7 @@ const GenerateWord = () => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
 
-  //Grabbing word from API - will replace once db is made
+  //Grabbing word from DB
   useEffect(() => {
     setWordNumber(randomIntFromInterval(1, 1000).toString());
     fetch(`http://localhost:3001/words/getByNumber/${wordNumber}`)
