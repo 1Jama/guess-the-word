@@ -6,12 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const WordGuessInputForm = (props) => {
   const [guess, setGuess] = useState('');
   const [newWord, setNewWord] = useState(false);
-  const [newNumber, setnewNumber] = useState(false);
 
   const [wordNumberTwo, setWordNumberTwo] = useState();
   const [englishWordsArray, setEnglishWordsArray] = useState([]);
-
-  var wordNumberValue = 0;
+  const englishWordList = [];
 
   const randomIntFromInterval = (min, max) => {
     // min and max included
@@ -19,16 +17,16 @@ const WordGuessInputForm = (props) => {
   };
 
   useEffect(() => {
-    const englishWordList = [];
-    for (var counter = 0; counter < 3; counter++) {
-      wordNumberValue = randomIntFromInterval(1, 1000);
-      setWordNumberTwo(wordNumberValue.toString());
-      fetch(`http://localhost:3001/words/getByNumber/${wordNumberValue}`)
-        .then((response) => response.json())
-        .then((data) => englishWordList.push(data.english));
-    }
-    setEnglishWordsArray(englishWordList);
+    fetch(`http://localhost:3001/getThree`)
+      .then((response) => response.json())
+      .then((data) => setEnglishWordsArray(data));
+
+    console.log(englishWordList);
   }, [newWord]);
+
+  englishWordsArray.forEach((element) => {
+    englishWordList.push(element.english);
+  });
 
   //handles users submitted input on button click
   const handleSubmit = (e) => {
@@ -39,7 +37,6 @@ const WordGuessInputForm = (props) => {
     if (guess) {
       props.onSubmit(newGuess);
     }
-    console.log(englishWordsArray);
 
     //props.changeState(false);
   };
@@ -47,19 +44,34 @@ const WordGuessInputForm = (props) => {
   return (
     <div className='form-group'>
       <Form className='guessInput' onChange={(e) => setGuess(e.target.value)}>
-        <Form.Control
-          type='text'
-          value={guess}
-          placeholder='Place your guess here...'
-        />
+        <Form.Control type='text' placeholder='Place your guess here...' />
         <br />
         <Button
           type='submit'
           variant='success'
           size='lg'
+          value={englishWordList[0]}
           onClick={handleSubmit}
         >
-          Submit
+          {englishWordList[0]}
+        </Button>
+        <Button
+          type='submit'
+          variant='success'
+          size='lg'
+          value={englishWordList[1]}
+          onClick={handleSubmit}
+        >
+          {englishWordList[1]}
+        </Button>
+        <Button
+          type='submit'
+          variant='success'
+          size='lg'
+          value={englishWordList[2]}
+          onClick={handleSubmit}
+        >
+          {englishWordList[2]}
         </Button>
       </Form>
     </div>

@@ -60,4 +60,14 @@ wordsRoutes
     return res.json(getEnglishWord);
   });
 
+wordsRoutes.route('/getThree').get(function (req, res) {
+  let db_connect2 = dbo.getDb('SpanishWords');
+  db_connect2
+    .collection('SpanishWords')
+    .aggregate([{ $sample: { size: 3 } }])
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
+});
 module.exports = wordsRoutes;
