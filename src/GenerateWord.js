@@ -14,6 +14,8 @@ const GenerateWord = () => {
   const [scoreCounter, setScoreCounter] = useState(0);
   const [wordNumber, setWordNumber] = useState();
   const [isCorrectWord, setIsCorrectWord] = useState(false);
+  const [wordObjectsArray, setWordObjectsArray] = useState([]);
+  const [englishWordList, setEnglishWordList] = useState([]);
 
   //Live updates isCorrectWord state on input submission
   useEffect(() => {
@@ -60,15 +62,31 @@ const GenerateWord = () => {
   };
 
   //Grabbing word from DB
+  const getFour = () => {
+    return fetch(`http://localhost:3001/getFour`).then((response) =>
+      response.json()
+    );
+    //.then((data) => setWordObjectsArray(data));
+  };
+
+  const getCorrectWord = (x) => {
+    var correctWordIndex = randomIntFromInterval(0, 3);
+    setGeneratedWord(x[correctWordIndex].spanish);
+    setEnglishTranslation(x[correctWordIndex].english);
+  };
+
   useEffect(() => {
-    setWordNumber(randomIntFromInterval(1, 1000).toString());
-    fetch(`http://localhost:3001/words/getByNumber/${wordNumber}`)
-      .then((response) => response.json())
-      .then((data) => {
-        setGeneratedWord(data.spanish);
-        setEnglishTranslation(data.english);
-      });
+    async function fetchData() {
+      const x = await getFour();
+      getCorrectWord(x);
+      createEnglishWordArray(x);
+    }
+    fetchData();
   }, [newWord]);
+
+  const createEnglishWordArray = (x) => {
+    setEnglishWordList(x.map((item) => item.english));
+  };
 
   return (
     <motion.div
@@ -83,7 +101,10 @@ const GenerateWord = () => {
 
           <h1 className='spanishWord'>{generatedWord}</h1>
 
-          <WordGuessInputForm onSubmit={saveGuessedWord} />
+          <WordGuessInputForm
+            englishWordList={englishWordList}
+            onSubmit={saveGuessedWord}
+          />
           <br />
           <Button className='Button' variant='danger' onClick={resetGame}>
             Reset

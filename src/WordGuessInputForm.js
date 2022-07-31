@@ -6,27 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const WordGuessInputForm = (props) => {
   const [guess, setGuess] = useState('');
   const [newWord, setNewWord] = useState(false);
-
-  const [wordNumberTwo, setWordNumberTwo] = useState();
-  const [englishWordsArray, setEnglishWordsArray] = useState([]);
-  const englishWordList = [];
-
-  const randomIntFromInterval = (min, max) => {
-    // min and max included
-    return Math.floor(Math.random() * (max - min + 1) + min);
-  };
-
-  useEffect(() => {
-    fetch(`http://localhost:3001/getThree`)
-      .then((response) => response.json())
-      .then((data) => setEnglishWordsArray(data));
-
-    console.log(englishWordList);
-  }, [newWord]);
-
-  englishWordsArray.forEach((element) => {
-    englishWordList.push(element.english);
-  });
+  const englishWordList = props.englishWordList;
 
   //handles users submitted input on button click
   const handleSubmit = (e) => {
@@ -72,6 +52,15 @@ const WordGuessInputForm = (props) => {
           onClick={handleSubmit}
         >
           {englishWordList[2]}
+        </Button>
+        <Button
+          type='submit'
+          variant='success'
+          size='lg'
+          value={englishWordList[2]}
+          onClick={handleSubmit}
+        >
+          {englishWordList[3]}
         </Button>
       </Form>
     </div>
