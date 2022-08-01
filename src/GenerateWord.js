@@ -10,50 +10,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const GenerateWord = () => {
   const [generatedWord, setGeneratedWord] = useState();
   const [englishTranslation, setEnglishTranslation] = useState();
-  const [newWord, setNewWord] = useState(false);
   const [scoreCounter, setScoreCounter] = useState(0);
-  const [wordNumber, setWordNumber] = useState();
-  const [isCorrectWord, setIsCorrectWord] = useState(false);
-  const [wordObjectsArray, setWordObjectsArray] = useState([]);
   const [englishWordList, setEnglishWordList] = useState([]);
-
-  //Live updates isCorrectWord state on input submission
-  useEffect(() => {
-    setIsCorrectWord(isCorrectWord);
-
-    guessResult();
-  }, [isCorrectWord]);
-
-  //results if based on if the users guess is correct or not
-  const guessResult = () => {
-    if (isCorrectWord) {
-      setScoreCounter(scoreCounter + 1);
-      setNewWord(!newWord);
-
-      console.log(scoreCounter);
-    } else if (isCorrectWord === false) {
-      resetGame();
-    }
-  };
-
-  //Game reset function
-  const resetGame = () => {
-    setNewWord(!newWord);
-    console.log(newWord + ' RESET');
-    setScoreCounter(0);
-  };
 
   //on button click
   const saveGuessedWord = (data) => {
-    //printing word and guess
-    console.log(data);
-    console.log(generatedWord);
+    //compare data
+    var isCorrect = englishTranslation === data;
 
-    setIsCorrectWord(false);
-    setIsCorrectWord(englishTranslation === data.toLowerCase());
-    console.log(isCorrectWord);
+    //get new words
+    fetchWordData();
+    //update score
+    setScoreCounter(isCorrect ? scoreCounter + 1 : 0);
 
-    guessResult();
+    //guessResult();
   };
 
   const randomIntFromInterval = (min, max) => {
@@ -69,24 +39,18 @@ const GenerateWord = () => {
     //.then((data) => setWordObjectsArray(data));
   };
 
-  const getCorrectWord = (x) => {
+  const fetchWordData = async () => {
+    const x = await getFour();
     var correctWordIndex = randomIntFromInterval(0, 3);
+
+    setEnglishWordList(x.map((item) => item.english));
     setGeneratedWord(x[correctWordIndex].spanish);
     setEnglishTranslation(x[correctWordIndex].english);
   };
 
   useEffect(() => {
-    async function fetchData() {
-      const x = await getFour();
-      getCorrectWord(x);
-      createEnglishWordArray(x);
-    }
-    fetchData();
-  }, [newWord]);
-
-  const createEnglishWordArray = (x) => {
-    setEnglishWordList(x.map((item) => item.english));
-  };
+    fetchWordData();
+  }, []);
 
   return (
     <motion.div
@@ -106,9 +70,6 @@ const GenerateWord = () => {
             onSubmit={saveGuessedWord}
           />
           <br />
-          <Button className='Button' variant='danger' onClick={resetGame}>
-            Reset
-          </Button>
         </div>
       </div>
     </motion.div>
