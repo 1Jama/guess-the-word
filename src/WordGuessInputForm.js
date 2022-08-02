@@ -16,15 +16,18 @@ const WordGuessInputForm = (props) => {
         <br />
 
         {englishWordList.map((item, i) => (
-          <Button
-            key={i}
-            type='submit'
-            variant='success'
-            size='lg'
-            onClick={() => handleSubmit(item)}
-          >
-            {item}
-          </Button>
+          <div className='ButtonBox'>
+            <Button
+              className='guessButton'
+              key={i}
+              type='submit'
+              variant='success'
+              size='lg'
+              onClick={() => handleSubmit(item)}
+            >
+              {item}
+            </Button>
+          </div>
         ))}
       </div>
     </div>

@@ -48,13 +48,16 @@ p {
   align-self: center;
   margin-top: 8%;
   width: 500px;
-  font-size: 15px;
+  font-size: 17px;
   font-family: sans-serif;
 }
 
 .startButton {
   width: 200px;
   height: 50px;
+  background-color: green;
+  color: white;
+  border-radius: 8%;
 }
 .titleButtonInstructionsBox {
   display: flex;
