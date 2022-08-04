@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 
 import './PopUp.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,10 +10,24 @@ function PopUp(props) {
   return props.trigger ? (
     <>
       <div className='page-mask'>
-        <div className='formContainer'>
-          {props.children}
-          <div className='popupContainer'>
-            <h1>Wrong! The right answer was: {props.rightAnswer}</h1>
+        <Modal
+          show={true}
+          size='lg'
+          aria-labelledby='contained-modal-title-vcenter'
+          centered
+        >
+          <Modal.Title id='contained-modal-title-vcenter'>
+            <h1>Incorrect!</h1>
+          </Modal.Title>
+
+          <Modal.Body>
+            <div className='popupContainer'>
+              <h1>Wrong! The correct answer was: {props.rightAnswer}</h1>
+            </div>
+          </Modal.Body>
+
+          <Modal.Footer>
+            {' '}
             <Button
               onClick={() => {
                 props.setTrigger(false);
@@ -23,8 +37,8 @@ function PopUp(props) {
             >
               Restart
             </Button>
-          </div>
-        </div>
+          </Modal.Footer>
+        </Modal>
       </div>
     </>
   ) : (

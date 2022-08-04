@@ -17,14 +17,10 @@
   flex-direction: row;
   justify-content: flex-end;
 }
-
-.popupContainer {
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: white;
+.contained-modal-title-vcenter {
+  margin-left: 50%;
 }
+
 .popupPadding {
   padding: 15px;
 }
