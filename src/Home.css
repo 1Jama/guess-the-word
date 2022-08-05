@@ -54,10 +54,6 @@ p {
 
 .startButton {
   width: 200px;
-  height: 50px;
-  background-color: green;
-  color: white;
-  border-radius: 8%;
 }
 .titleButtonInstructionsBox {
   display: flex;

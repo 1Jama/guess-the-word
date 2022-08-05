@@ -22,12 +22,11 @@ function PopUp(props) {
 
           <Modal.Body>
             <div className='popupContainer'>
-              <h1>Wrong! The correct answer was: {props.rightAnswer}</h1>
+              <h1>The correct answer was: {props.rightAnswer}</h1>
             </div>
           </Modal.Body>
 
           <Modal.Footer>
-            {' '}
             <Button
               onClick={() => {
                 props.setTrigger(false);

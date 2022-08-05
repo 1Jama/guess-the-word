@@ -37,11 +37,11 @@ const GenerateWord = () => {
 
   //calls fetch function then assigns the generated correct word + fills wrong answer array
   const fetchWordData = async () => {
-    const x = await getFour();
+    const wordObjectArray = await getFour();
     var correctWordIndex = randomIntFromInterval(0, 3);
 
-    setEnglishWordList(x.map((item) => item.english));
-    setGeneratedWord(x[correctWordIndex]);
+    setEnglishWordList(wordObjectArray.map((item) => item.english));
+    setGeneratedWord(wordObjectArray[correctWordIndex]);
   };
 
   //on render and when the popup is closed => Fetch new words, fills wrong answer array with new words and sets score to 0

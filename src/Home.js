@@ -20,14 +20,18 @@ function Home() {
         <div className='titleButtonInstructionsBox'>
           <p>Translate The Spanish Word!</p>
           <Link to='/Guess'>
-            <motion.button
-              className='startButton'
-              variant='success'
-              whileHover={{ scale: 1.1 }}
+            <motion.div
+              className='animatable'
+              whileHover={{
+                scale: 1.2,
+                transition: { duration: 0.3 },
+              }}
               whileTap={{ scale: 0.9 }}
             >
-              Start!
-            </motion.button>
+              <Button variant='success' size='xxl' className='startButton'>
+                Start
+              </Button>
+            </motion.div>
           </Link>
           <Typical
             className='instructions'

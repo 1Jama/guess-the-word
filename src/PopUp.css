@@ -28,3 +28,6 @@
   align-self: center;
   width: 100%;
 }
+.modal-title {
+  margin-left: 20px;
+}

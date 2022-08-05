@@ -16,14 +16,15 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 450px;
+  width: 500px;
   margin-top: 35px;
 }
 .guessButton {
   width: 180px;
 }
 .ButtonBox {
-  padding: 15px;
+  padding: 20px;
+  margin-left: 10px;
 }
 
 .innerGuessContainer {
@@ -32,7 +33,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 30%;
+  border-radius: 20%;
   border-style: double;
   border-color: grey;
   background-color: whitesmoke;
@@ -72,4 +73,7 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.btn-xxl {
+  font-size: 1.8rem;
 }
