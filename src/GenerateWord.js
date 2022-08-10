@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import WordGuessInputForm from './WordGuessInputForm';
+import WordGuessInputFormHard from './WordGuessInputFormHard';
 import { randomIntFromInterval } from './Util';
 import PopUp from './PopUp.js';
 import './GenerateWord.css';
@@ -20,6 +21,26 @@ const GenerateWord = () => {
     var isCorrect = generatedWord.english === data;
 
     //update score & get new words if right, if wrong open popup
+    if (isCorrect) {
+      setScoreCounter(scoreCounter + 1);
+      fetchWordData();
+    } else {
+      setOpen(true);
+    }
+  };
+
+  const saveGuessedWordHard = (data) => {
+    //compare data
+    for (let index = 0; index <= data.length; index++) {
+      if (data[index]) {
+        var temp = data[index].replace(/[()]/g, '');
+
+        var isCorrect = generatedWord.english === temp.toLowerCase();
+        //  console.log(temp);
+      }
+      if (isCorrect) break;
+      //update score & get new words if right, if wrong open popup
+    }
     if (isCorrect) {
       setScoreCounter(scoreCounter + 1);
       fetchWordData();
@@ -63,9 +84,9 @@ const GenerateWord = () => {
 
           <h1 className='spanishWord'>{generatedWord.spanish}</h1>
 
-          <WordGuessInputForm
+          <WordGuessInputFormHard
             englishWordList={englishWordList}
-            onSubmit={saveGuessedWord}
+            onSubmit={saveGuessedWordHard}
           />
           <br />
         </div>

@@ -19,7 +19,7 @@ function Home() {
       <div className='homeBox'>
         <div className='titleButtonInstructionsBox'>
           <p>Translate The Spanish Word!</p>
-          <Link to='/Guess'>
+          <Link exact to='/Guess'>
             <motion.div
               className='animatable'
               whileHover={{
