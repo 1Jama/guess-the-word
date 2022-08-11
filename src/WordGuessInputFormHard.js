@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Button, Form } from 'react-bootstrap';
 
 const WordGuessInputFormHard = (props) => {
   const [guess, setGuess] = useState('');
-  //const [hardGuessWordList, setHardGuessWordList] = useState([]);
   var hardGuessWordList = [];
 
   //Grabbing Synonyms from API
@@ -51,16 +51,24 @@ const WordGuessInputFormHard = (props) => {
           value={guess}
           placeholder='Place your guess here...'
         />
-
-        <Button
-          className='guessButton'
-          type='submit'
-          variant='success'
-          size='xxl'
-          onClick={handleSubmit}
+        <motion.div
+          className='animatable'
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.2 },
+          }}
+          whileTap={{ scale: 0.9 }}
         >
-          Submit
-        </Button>
+          <Button
+            className='guessButton'
+            type='submit'
+            variant='success'
+            size='xxl'
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+        </motion.div>
       </Form>
     </div>
   );

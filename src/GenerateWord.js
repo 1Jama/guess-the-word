@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import WordGuessInputForm from './WordGuessInputForm';
 import WordGuessInputFormHard from './WordGuessInputFormHard';
-import { randomIntFromInterval } from './Util';
+import { randomIntFromInterval, spring } from './Util';
 import PopUp from './PopUp.js';
 import './GenerateWord.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,6 +14,10 @@ const GenerateWord = () => {
   const [englishWordList, setEnglishWordList] = useState([]);
   const [open, setOpen] = useState(false);
   const [wrongAnswerRestart, setWrongAnswerRestart] = useState(false);
+  const [isOn, setIsOn] = useState(false);
+
+  //controls mode toggle switch button
+  const toggleSwitch = () => setIsOn(!isOn);
 
   //on button click
   const saveGuessedWord = (data) => {
@@ -69,7 +73,7 @@ const GenerateWord = () => {
   useEffect(() => {
     fetchWordData();
     setScoreCounter(0);
-  }, [wrongAnswerRestart]);
+  }, [isOn || wrongAnswerRestart]);
 
   return (
     <motion.div
@@ -78,19 +82,32 @@ const GenerateWord = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
+      <div className='modeSelectContainer'>
+        <h1 className={isOn ? 'modeTitle' : 'selectedMode'}>Easy</h1>
+        <div className='switch' data-isOn={isOn} onClick={toggleSwitch}>
+          <motion.div className='handle' layout transition={spring} />
+        </div>
+        <h1 className={isOn ? 'selectedMode' : 'modeTitle'}>Hard</h1>
+      </div>
       <div className='innerGuessContainer'>
         <div className='wordAndForm'>
           <h2 className='score'> Score: {scoreCounter}</h2>
 
           <h1 className='spanishWord'>{generatedWord.spanish}</h1>
-
-          <WordGuessInputFormHard
-            englishWordList={englishWordList}
-            onSubmit={saveGuessedWordHard}
-          />
-          <br />
+          {isOn ? (
+            <WordGuessInputFormHard
+              englishWordList={englishWordList}
+              onSubmit={saveGuessedWordHard}
+            />
+          ) : (
+            <WordGuessInputForm
+              englishWordList={englishWordList}
+              onSubmit={saveGuessedWord}
+            />
+          )}
         </div>
       </div>
+
       <PopUp
         trigger={open}
         setTrigger={setOpen}
