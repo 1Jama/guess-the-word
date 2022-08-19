@@ -73,7 +73,7 @@ const GenerateWord = () => {
   useEffect(() => {
     fetchWordData();
     setScoreCounter(0);
-  }, [isOn || wrongAnswerRestart]);
+  }, [isOn, wrongAnswerRestart]);
 
   return (
     <motion.div

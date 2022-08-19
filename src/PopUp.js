@@ -5,7 +5,7 @@ import './PopUp.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function PopUp(props) {
-  const [restartGame, setRestartGame] = useState(true);
+  const [restartGame, setRestartGame] = useState();
 
   return props.trigger ? (
     <>

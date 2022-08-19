@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button, Form } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const WordGuessInputFormHard = (props) => {
   const [guess, setGuess] = useState('');
@@ -33,11 +34,11 @@ const WordGuessInputFormHard = (props) => {
     e.preventDefault();
 
     const newGuess = guess;
-    const we = await fetchWordData(newGuess);
-    we.push(newGuess);
+    const userInputWordGuessArray = await fetchWordData(newGuess);
+    userInputWordGuessArray.push(newGuess);
 
-    props.onSubmit(we);
-    console.log(we);
+    props.onSubmit(userInputWordGuessArray);
+
     hardGuessWordList = [];
     setGuess('');
   };
