@@ -831,8 +831,8 @@
     "url": "https://github.com/1Jama/guess-the-word/issues"
   },
   "engines": {
-    "node": "14.18.3",
-    "npm": "6.14.15"
+    "node": "16.15.0",
+    "npm": "8.5.5"
   },
   "homepage": "https://github.com/1Jama/guess-the-word#readme"
 }
