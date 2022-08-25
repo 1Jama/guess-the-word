@@ -55,10 +55,9 @@ const GenerateWord = () => {
 
   //Grabbing 4 word objects from DB
   const getFour = () => {
-    return;
-    /* fetch(`http://localhost:3001/getFour`).then((response) =>
+    return fetch(`http://localhost:27017/getFour`).then((response) =>
       response.json()
-    ); */ console.log('hello World');
+    );
   };
 
   //calls fetch function then assigns the generated correct word + fills wrong answer array
