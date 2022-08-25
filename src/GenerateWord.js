@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import WordGuessInputForm from './WordGuessInputForm';
 import WordGuessInputFormHard from './WordGuessInputFormHard';
 import { randomIntFromInterval, spring } from './Util';
-import { port } from '../server/server';
+
 import PopUp from './PopUp.js';
 import './GenerateWord.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -56,7 +56,7 @@ const GenerateWord = () => {
 
   //Grabbing 4 word objects from DB
   const getFour = () => {
-    return fetch(`http://localhost:${port}/getFour`).then((response) =>
+    return fetch(`http://localhost:3001/getFour`).then((response) =>
       response.json()
     );
   };
