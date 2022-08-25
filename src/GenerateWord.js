@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import WordGuessInputForm from './WordGuessInputForm';
 import WordGuessInputFormHard from './WordGuessInputFormHard';
 import { randomIntFromInterval, spring } from './Util';
-import { port } from './server/server.js';
+import { port } from './server/server';
 import PopUp from './PopUp.js';
 import './GenerateWord.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
