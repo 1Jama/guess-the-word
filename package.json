@@ -30,7 +30,7 @@
     "npm": "8.5.5"
   },
   "scripts": {
-    "start": "node ./server/server.js",
+    "start": "node ./server/server.js & react-scripts start & wait -n",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
