@@ -55,7 +55,7 @@ const GenerateWord = () => {
 
   //Grabbing 4 word objects from DB
   const getFour = () => {
-    return fetch(`http://localhost:27017/getFour`).then((response) =>
+    return fetch(`http://127.0.0.1:27017/getFour`).then((response) =>
       response.json()
     );
   };
