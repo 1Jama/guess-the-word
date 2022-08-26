@@ -6,18 +6,8 @@ const client = new MongoClient(Db, {
 });
 
 var _db;
-const mongoose = require('mongoose');
 
-mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost:3001', {
-    useNewUrlParser: true,
-  })
-  .then((connect) => console.log('connected to mongodb..'))
-  .catch((e) => console.log('could not connect to mongodb', e));
-
-module.exports = { mongoose };
-
-/* module.exports = {
+module.exports = {
   connectToServer: function (callback) {
     client.connect(function (err, db) {
       // Verify we got a good "db" object
@@ -33,4 +23,3 @@ module.exports = { mongoose };
     return _db;
   },
 };
- */
