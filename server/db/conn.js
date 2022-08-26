@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+var mongoose = require('mongoose');
 const Db = process.env.ATLAS_URI;
 const client = new MongoClient(Db, {
   useNewUrlParser: true,
@@ -8,8 +9,8 @@ const client = new MongoClient(Db, {
 var _db;
 
 module.exports = {
-  connectToServer: function(callback) {
-    client.connect(function(err, db) {
+  connectToServer: function (callback) {
+    mongoose.connect(function (err, db) {
       // Verify we got a good "db" object
       if (db) {
         _db = db.db('SpanishWords');
@@ -19,7 +20,7 @@ module.exports = {
     });
   },
 
-  getDb: function() {
+  getDb: function () {
     return _db;
   },
 };
