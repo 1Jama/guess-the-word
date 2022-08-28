@@ -9,15 +9,15 @@ app.use(require('./words'));
 // get driver connection
 const dbo = require('./db/conn');
 
+const path = require('path');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
+
 app.listen(port, () => {
   // perform a database connection when server starts
   dbo.connectToServer(function (err) {
     if (err) console.error(err);
   });
   console.log(`Server is running on port: ${port}`);
-});
-
-const path = require('path');
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
 });
