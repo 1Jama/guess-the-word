@@ -17,6 +17,7 @@ app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
 
-app.get('/', function (req, res) {
-  res.render('index', {});
+const path = require('path');
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'));
 });
