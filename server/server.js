@@ -11,7 +11,7 @@ const dbo = require('./db/conn');
 
 const path = require('path');
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'src', 'index.js'));
 });
 
 app.listen(port, () => {
