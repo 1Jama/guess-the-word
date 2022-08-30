@@ -32,7 +32,7 @@
   "scripts": {
     "server": "node ./server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "npm run server && npm install",
+    "start": "npm run server",
     "build": "react-scripts build"
   },
   "eslintConfig": {
