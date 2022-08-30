@@ -31,12 +31,11 @@
   },
   "scripts": {
     "server": "node ./server/server.js",
-    "client": "react-scripts start",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "npm run server && npm run client",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+   "heroku-postbuild": "npm run install-client && npm run build",
+"install-client": "cd ../client && npm install",
+   
+    "start": "npm run server"
+   
   },
   "eslintConfig": {
     "extends": [
