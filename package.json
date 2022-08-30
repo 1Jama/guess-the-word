@@ -33,6 +33,7 @@
     "server": "node ./server/server.js",
     "client": "react-scripts start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm install",
     "start": "npm run server && npm run client",
     "build": "react-scripts build",
     "test": "react-scripts test",
