@@ -31,10 +31,10 @@
   },
   "scripts": {
     "server": "node ./server/server.js",
-    "heroku-postbuild": "npm run install-client && npm install",
-    "install-client": "react-scripts start",
+    "client": "react-scripts start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm run server && npm run client",
     "build": "react-scripts build",
-    "start": "npm run server",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
