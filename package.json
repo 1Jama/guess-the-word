@@ -32,7 +32,7 @@
   "scripts": {
     "server": "node ./server/server.js",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "install-client": "npm install",
+    "install-client": "react-scripts start",
     "build": "react-scripts build",
     "start": "npm run server"
   },
