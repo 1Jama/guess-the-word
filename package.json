@@ -34,7 +34,9 @@
     "heroku-postbuild": "npm run install-client && npm install && npm run build",
     "install-client": "react-scripts start",
     "build": "react-scripts build",
-    "start": "npm run server"
+    "start": "npm run server",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
