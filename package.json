@@ -33,7 +33,7 @@
     "server": "node ./server/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "npm run server",
-    "build": "npm install && npm run build"
+    "build": "react-scripts build && (cd server && npm install)"
   },
   "eslintConfig": {
     "extends": [
