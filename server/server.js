@@ -15,7 +15,7 @@ app.use(express.json());
 // get driver connection
 const dbo = require('./db/conn');
 
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
 
