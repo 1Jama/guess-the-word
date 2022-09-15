@@ -56,9 +56,9 @@ const GenerateWord = () => {
 
   //Grabbing 4 word objects from DB
   const getFour = () => {
-    return fetch(
-      `${process.env.REACT_APP_SERVER_URL}:${process.env.PORT}/getFour`
-    ).then((response) => response.json());
+    return fetch(`${process.env.REACT_APP_SERVER_URL}/getFour`).then(
+      (response) => response.json()
+    );
   };
 
   //calls fetch function then assigns the generated correct word + fills wrong answer array

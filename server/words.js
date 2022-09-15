@@ -1,20 +1,27 @@
-const express = require('express');
-
+/* const express = require('express');
+const cors = require('cors');
+const app = express();
+app.use(express.static(__dirname + '/../build'));
+app.use('/static', express.static(__dirname + '/../build/static'));
+app.use(cors());
+app.use(express.json()); */
 // recordRoutes is an instance of the express router.
 // We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /record.
-const wordsRoutes = express.Router();
+
+//const wordsRoutes = express.Router();
 
 // This will help us connect to the database
-const dbo = require('./db/conn');
+//const dbo = require('./db/conn');
 
 // This help convert the id from string to ObjectId for the _id.
-const ObjectId = require('mongodb').ObjectId;
+//const ObjectId = require('mongodb').ObjectId;
 //const Spanish = require('mongodb').Spanish;
 //const number = require('mongodb').Number;
 
 // This section will help you get a list of all the records.
-wordsRoutes.route('/words').get(function (req, res) {
+
+/* wordsRoutes.route('/words').get(function (req, res) {
   let db_connect = dbo.getDb('SpanishWords');
   db_connect
     .collection('SpanishWords')
@@ -58,16 +65,4 @@ wordsRoutes
       .collection('SpanishWords')
       .findOne(englishWord);
     return res.json(getEnglishWord);
-  });
-
-wordsRoutes.route('/getFour').get(function (req, res) {
-  let db_connect2 = dbo.getDb('SpanishWords');
-  db_connect2
-    .collection('SpanishWords')
-    .aggregate([{ $sample: { size: 4 } }])
-    .toArray(function (err, result) {
-      if (err) throw err;
-      res.json(result);
-    });
-});
-module.exports = wordsRoutes;
+  }); */
