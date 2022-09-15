@@ -1,7 +1,7 @@
 import './App.css';
 
 import AnimatedRoutes from './AnimatedRoutes';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import React, { Component, useState } from 'react';
 //import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
