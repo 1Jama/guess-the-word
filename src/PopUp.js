@@ -28,6 +28,7 @@ function PopUp(props) {
 
           <Modal.Footer>
             <Button
+              autoFocus
               onClick={() => {
                 props.setTrigger(false);
                 props.setNewWords(restartGame);
