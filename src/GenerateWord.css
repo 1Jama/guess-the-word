@@ -42,8 +42,8 @@ body {
   box-shadow: -5px -5px 30px 5px hwb(129 42% 5% / 0.275),
     5px 5px 30px 5px rgba(80, 200, 255, 0.275);
   border-width: 10px;
-  height: 600px;
-  width: 700px;
+  height: 25vh;
+  width: 25vh;
 }
 html {
   background: url(bg.jpg) no-repeat center center fixed !important;
