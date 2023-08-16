@@ -17,7 +17,7 @@ const WordGuessInputFormHard = (props) => {
   const fetchWordData = async (x) => {
     const wordObjectArray = await getSyns(x);
     console.log(wordObjectArray);
-    if (wordObjectArray[0].meta && wordObjectArray) {
+    if (wordObjectArray[0].meta) {
       hardGuessWordList = wordObjectArray.map((item) => item.meta.syns);
       return flatten(hardGuessWordList);
     } else {
