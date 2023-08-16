@@ -12,10 +12,19 @@ body {
 }
 .guessInput {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  width: 500px;
   margin-top: 35px;
+}
+.guessButton {
+  width: 180px;
+}
+.ButtonBox {
+  padding: 20px;
+  margin-left: 10px;
 }
 
 .innerGuessContainer {
@@ -24,17 +33,17 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 30%;
+  border-radius: 20%;
   border-style: double;
   border-color: grey;
   background-color: whitesmoke;
   -moz-box-shadow: inset 0 0 10px #000000;
   -webkit-box-shadow: inset 0 0 10px #000000;
-  box-shadow: inset 0 0 10px #000000;
-
+  box-shadow: -5px -5px 30px 5px hwb(129 42% 5% / 0.275),
+    5px 5px 30px 5px rgba(80, 200, 255, 0.275);
   border-width: 10px;
-  height: 600px;
-  width: 700px;
+  height: 700px;
+  width: 600px;
 }
 html {
   background: url(bg.jpg) no-repeat center center fixed !important;
@@ -48,7 +57,7 @@ img {
 }
 
 .spanishWord {
-  font-size: 75px;
+  font-size: 100px;
   align-self: center;
   margin-top: 5vh;
 }
@@ -64,4 +73,53 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.btn-xxl {
+  font-size: 1.8rem;
+}
+.textInput {
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.switch {
+  align-self: center;
+  width: 145px;
+  height: 80px;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 50px;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.switch[data-isOn='true'] {
+  justify-content: flex-end;
+  background-color: #0fa;
+}
+
+.handle {
+  width: 60px;
+  height: 60px;
+  background-color: grey;
+  border-radius: 40px;
+}
+.modeSelectContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.modeTitle {
+  padding: 25px;
+  font-size: 50px;
+  color: white;
+}
+.selectedMode {
+  padding: 25px;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
 }

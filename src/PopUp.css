@@ -1,0 +1,33 @@
+.page-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.formContainer {
+  margin-top: 400px;
+  display: flex;
+  justify-content: center;
+}
+.bCont {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.contained-modal-title-vcenter {
+  margin-left: 50%;
+}
+
+.popupPadding {
+  padding: 15px;
+}
+.tFld {
+  align-self: center;
+  width: 100%;
+}
+.modal-title {
+  margin-left: 20px;
+}

@@ -1,0 +1,44 @@
+# fly.toml app configuration file generated for guess-the-spanish-word on 2023-08-16T02:51:02-04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "guess-the-spanish-word"
+primary_region = "dfw"
+kill_signal = "SIGINT"
+kill_timeout = "5s"
+
+[experimental]
+  auto_rollback = true
+
+[build]
+  builder = "heroku/buildpacks:20"
+
+[env]
+  ATLAS_URI = "mongodb+srv://User1:User1@cluster0.unlledw.mongodb.net/?retryWrites=true&w=majority"
+  PORT = "8080"
+  REACT_APP_PORT = "8080"
+  REACT_APP_SERVER_URL = "https://guess-the-spanish-word.fly.dev"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+    force_https = true
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+  [services.concurrency]
+    type = "connections"
+    hard_limit = 25
+    soft_limit = 20
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "1s"
