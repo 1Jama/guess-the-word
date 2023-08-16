@@ -22,6 +22,7 @@ const GenerateWord = () => {
 
   //on button click
   const saveGuessedWord = (data) => {
+    console.log(data);
     //compare data
     var isCorrect = generatedWord.english === data;
 
@@ -35,6 +36,7 @@ const GenerateWord = () => {
   };
 
   const saveGuessedWordHard = (data) => {
+    console.log(data);
     //compare data
     for (let index = 0; index <= data.length; index++) {
       if (data[index]) {
