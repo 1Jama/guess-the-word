@@ -74,11 +74,11 @@ const WordGuessInputFormHard = (props) => {
           <Button
             className='guessButton'
             type='submit'
-            variant='success'
+            variant='warning'
             size='xxl'
             onClick={handleSubmit}
           >
-            Submit
+            <span class='front'>Submit</span>{' '}
           </Button>
         </motion.div>
       </Form>

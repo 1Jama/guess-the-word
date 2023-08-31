@@ -28,11 +28,11 @@ const WordGuessInputForm = (props) => {
                 className='guessButton'
                 key={i}
                 type='submit'
-                variant='success'
+                variant='warning'
                 size='xxl'
                 onClick={() => handleSubmit(item)}
               >
-                {item}
+                <span class='front'>{item}</span>
               </Button>
             </motion.div>
           </div>

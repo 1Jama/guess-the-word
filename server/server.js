@@ -15,10 +15,6 @@ app.use(express.json());
 // get driver connection
 const dbo = require('./db/conn');
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
-});
-
 app.get('/getFour', (req, res) => {
   let db_connect2 = dbo.getDb('SpanishWords');
   db_connect2
@@ -28,6 +24,10 @@ app.get('/getFour', (req, res) => {
       if (err) throw err;
       res.json(result);
     });
+});
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'build', 'index.html'));
 });
 
 app.listen(port, () => {
