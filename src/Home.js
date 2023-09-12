@@ -28,8 +28,8 @@ function Home() {
               }}
               whileTap={{ scale: 0.9 }}
             >
-              <Button variant='success' size='xxl' className='startButton'>
-                Start
+              <Button variant='warning' size='xxl' className='startButton'>
+                <span class='front'>Start!</span>
               </Button>
             </motion.div>
           </Link>
