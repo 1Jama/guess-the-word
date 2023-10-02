@@ -3,7 +3,7 @@ Web application for learning Spanish with 2 separate modes, and easy mode along 
 
 Done in React.js, Node.js/Express and MongoDB.
 
-Currently hosted on https://guess-the-spanish-word.fly.dev/
+Currently hosted on https://spanishguesser.com/
 
 ![Alt text](https://i.imgur.com/mYfypyh.jpg "Landing Page")
 
