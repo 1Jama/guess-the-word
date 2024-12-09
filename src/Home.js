@@ -7,7 +7,7 @@ import Typical from 'react-typical';
 
 function Home() {
   var gameInstructions =
-    'Hello! Welcome to guess the Spanish word! To begin, please click the Start! button above. A spanish word will be presented and you must give the correct english translation to score points. Input a wrong guess and your score will be set back to 0!';
+    'Hello! Welcome to Spanish Guesser! To begin, please click the Start! button above. A spanish word will be presented and you must give the correct English translation to score points. Input a wrong guess and your score will be set back to 0!';
 
   return (
     <motion.div
@@ -28,14 +28,14 @@ function Home() {
               }}
               whileTap={{ scale: 0.9 }}
             >
-              <Button variant='success' size='xxl' className='startButton'>
-                Start
+              <Button variant='warning' size='xxl' className='startButton'>
+                <span class='front'>Start!</span>
               </Button>
             </motion.div>
           </Link>
           <Typical
             className='instructions'
-            steps={[gameInstructions, 1000]}
+            steps={[gameInstructions, 500]}
             loop={1}
             wrapper='p'
           />

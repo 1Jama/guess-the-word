@@ -8,6 +8,7 @@ import { randomIntFromInterval, spring } from './Util';
 import PopUp from './PopUp.js';
 import './GenerateWord.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import classNames from 'classnames';
 
 const GenerateWord = () => {
   const [generatedWord, setGeneratedWord] = useState({});
@@ -22,6 +23,7 @@ const GenerateWord = () => {
 
   //on button click
   const saveGuessedWord = (data) => {
+    console.log(data);
     //compare data
     var isCorrect = generatedWord.english === data;
 
@@ -35,6 +37,7 @@ const GenerateWord = () => {
   };
 
   const saveGuessedWordHard = (data) => {
+    console.log(data);
     //compare data
     for (let index = 0; index <= data.length; index++) {
       if (data[index]) {
@@ -56,6 +59,7 @@ const GenerateWord = () => {
 
   //Grabbing 4 word objects from DB
   const getFour = () => {
+    console.log(process.env.REACT_APP_SERVER_URL);
     return fetch(`${process.env.REACT_APP_SERVER_URL}/getFour`).then(
       (response) => response.json()
     );
@@ -67,7 +71,9 @@ const GenerateWord = () => {
     var correctWordIndex = randomIntFromInterval(0, 3);
 
     setEnglishWordList(wordObjectArray.map((item) => item.english));
+    console.log(wordObjectArray);
     setGeneratedWord(wordObjectArray[correctWordIndex]);
+    console.log(String(wordObjectArray[correctWordIndex].spanish).length);
   };
 
   //on render and when the popup is closed => Fetch new words, fills wrong answer array with new words and sets score to 0
@@ -75,6 +81,11 @@ const GenerateWord = () => {
     fetchWordData();
     setScoreCounter(0);
   }, [isOn, wrongAnswerRestart]);
+
+  const spanishWordClass = classNames({
+    spanishWordLarge: String(generatedWord.spanish).length >= 10,
+    spanishWord: String(generatedWord.spanish).length < 10,
+  });
 
   return (
     <motion.div
@@ -94,7 +105,7 @@ const GenerateWord = () => {
         <div className='wordAndForm'>
           <h2 className='score'> Score: {scoreCounter}</h2>
 
-          <h1 className='spanishWord'>{generatedWord.spanish}</h1>
+          <h1 className={spanishWordClass}>{generatedWord.spanish}</h1>
           {isOn ? (
             <WordGuessInputFormHard
               englishWordList={englishWordList}

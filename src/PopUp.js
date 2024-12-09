@@ -35,7 +35,7 @@ function PopUp(props) {
                 setRestartGame(!restartGame);
               }}
             >
-              Restart
+              Restart Game
             </Button>
           </Modal.Footer>
         </Modal>

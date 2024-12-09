@@ -16,9 +16,15 @@ const WordGuessInputFormHard = (props) => {
 
   const fetchWordData = async (x) => {
     const wordObjectArray = await getSyns(x);
-    hardGuessWordList = wordObjectArray.map((item) => item.meta.syns);
+    console.log(wordObjectArray);
+    if (wordObjectArray[0].meta) {
+      hardGuessWordList = wordObjectArray.map((item) => item.meta.syns);
+      return flatten(hardGuessWordList);
+    } else {
+      props.onSubmit('');
 
-    return flatten(hardGuessWordList);
+      afterWordGuessed();
+    }
   };
 
   function flatten(arr) {
@@ -34,11 +40,16 @@ const WordGuessInputFormHard = (props) => {
     e.preventDefault();
 
     const newGuess = guess;
+
     const userInputWordGuessArray = await fetchWordData(newGuess);
     userInputWordGuessArray.push(newGuess);
 
     props.onSubmit(userInputWordGuessArray);
 
+    afterWordGuessed();
+  };
+
+  const afterWordGuessed = () => {
     hardGuessWordList = [];
     setGuess('');
   };
@@ -63,11 +74,11 @@ const WordGuessInputFormHard = (props) => {
           <Button
             className='guessButton'
             type='submit'
-            variant='success'
+            variant='warning'
             size='xxl'
             onClick={handleSubmit}
           >
-            Submit
+            <span class='front'>Submit</span>{' '}
           </Button>
         </motion.div>
       </Form>

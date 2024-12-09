@@ -15,10 +15,10 @@ kill_timeout = "5s"
   builder = "heroku/buildpacks:20"
 
 [env]
-  ATLAS_URI = "mongodb+srv://User1:User1@cluster0.unlledw.mongodb.net/?retryWrites=true&w=majority"
-  PORT = "8080"
-  REACT_APP_PORT = "8080"
-  REACT_APP_SERVER_URL = "https://guess-the-spanish-word.fly.dev"
+ # ATLAS_URI = "mongodb+srv://User1:User1@cluster0.unlledw.mongodb.net/?retryWrites=true&w=majority"
+ # PORT = "8080"
+ # REACT_APP_PORT = "8080"
+ # REACT_APP_SERVER_URL = "https://guess-the-spanish-word.fly.dev"
 
 [[services]]
   protocol = "tcp"
