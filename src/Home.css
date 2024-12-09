@@ -39,7 +39,7 @@ body {
   box-shadow: -5px -5px 30px -10px #aa151b, 5px 5px 40px 0px #f1bf00;
   border-width: 0.625rem;
   height: 43.75em;
-  max-height: fit-content;
+
   width: 37.5em;
 }
 
