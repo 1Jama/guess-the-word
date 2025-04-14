@@ -7,6 +7,20 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.resetButton {
+  max-width: 20rem;
+  background: #f1bf00;
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+
+.resetButton:active .front {
+  transform: translateY(-2px);
+}
+
 .formContainer {
   margin-top: 400px;
   display: flex;
@@ -17,8 +31,19 @@
   flex-direction: row;
   justify-content: flex-end;
 }
-.contained-modal-title-vcenter {
-  margin-left: 50%;
+
+#contained-modal-title-vcenter {
+  margin-top: 1rem;
+}
+.incorrectWord {
+  color: red;
+  margin-left: 1rem;
+}
+.popupContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .popupPadding {
@@ -29,5 +54,36 @@
   width: 100%;
 }
 .modal-title {
-  margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+.modal-content {
+  border-radius: 2rem;
+}
+
+.modal-header {
+  border-bottom: 0 none;
+}
+
+.modal-footer {
+  border-top: 0 none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-device-width: 580px) {
+  .incorrectWord {
+    margin-left: 0rem;
+  }
+
+  .popupContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }

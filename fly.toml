@@ -12,7 +12,7 @@ kill_timeout = "5s"
   auto_rollback = true
 
 [build]
-  builder = "heroku/buildpacks:20"
+  builder = "heroku/builder:24"
 
 [env]
  # ATLAS_URI = "mongodb+srv://User1:User1@cluster0.unlledw.mongodb.net/?retryWrites=true&w=majority"

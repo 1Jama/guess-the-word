@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
 import './PopUp.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,6 +12,7 @@ function PopUp(props) {
     <>
       <div className='page-mask'>
         <Modal
+          className='popUpModal'
           show={true}
           size='lg'
           aria-labelledby='contained-modal-title-vcenter'
@@ -22,21 +24,33 @@ function PopUp(props) {
 
           <Modal.Body>
             <div className='popupContainer'>
-              <h1>The correct answer was: {props.rightAnswer}</h1>
+              <h1>The correct answer was: </h1>
+              <h1 className='incorrectWord'>{props.rightAnswer}</h1>
             </div>
           </Modal.Body>
 
           <Modal.Footer>
-            <Button
-              autoFocus
-              onClick={() => {
-                props.setTrigger(false);
-                props.setNewWords(restartGame);
-                setRestartGame(!restartGame);
+            <motion.div
+              className='animatable'
+              whileHover={{
+                scale: 1.2,
+                transition: { duration: 0.2 },
               }}
+              whileTap={{ scale: 0.9 }}
             >
-              Restart Game
-            </Button>
+              <Button
+                variant='warning'
+                className='resetButton'
+                autoFocus
+                onClick={() => {
+                  props.setTrigger(false);
+                  props.setNewWords(restartGame);
+                  setRestartGame(!restartGame);
+                }}
+              >
+                <span class='front'>Restart Game!</span>
+              </Button>
+            </motion.div>
           </Modal.Footer>
         </Modal>
       </div>
