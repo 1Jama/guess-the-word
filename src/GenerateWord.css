@@ -107,6 +107,7 @@ img {
   margin-bottom: 1.875rem;
 }
 .switch {
+  position: fixed;
   align-self: center;
   width: 9.063rem;
   height: 5rem;
@@ -135,14 +136,14 @@ img {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 .modeTitle {
-  padding: 1.563rem;
   font-size: 2.125rem;
   color: white;
 }
 .selectedMode {
-  padding: 1.563rem;
   font-size: 3.125rem;
   color: #ffffff;
 

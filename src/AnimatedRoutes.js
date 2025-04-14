@@ -16,7 +16,7 @@ function AnimatedRoutes() {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route exact path='/' element={<Home />} />
-        <Route path='/Guess' element={<GenerateWord />} />
+        <Route path='/guess' element={<GenerateWord />} />
       </Routes>
     </AnimatePresence>
   );

@@ -95,7 +95,12 @@ const GenerateWord = () => {
       exit={{ opacity: 0 }}
     >
       <div className='modeSelectContainer'>
-        <h1 className={isOn ? 'modeTitle' : 'selectedMode'}>Easy</h1>
+        <h1
+          className={isOn ? 'modeTitle' : 'selectedMode'}
+          style={{ 'margin-right': '15rem' }}
+        >
+          Easy
+        </h1>
         <div className='switch' data-isOn={isOn} onClick={toggleSwitch}>
           <motion.div className='handle' layout transition={spring} />
         </div>
